@@ -7,13 +7,18 @@ const App: React.FC = () => {
   const [todos, setTodos] = useState<TodoItem[]>([]);
 
   const addNewTodo = (todoItem: TodoItem) => {
-    setTodos([todoItem, ...todos]);
+    setTodos((prevTodos) => [todoItem, ...prevTodos]);
+  };
+
+  const removeTodo = (id: string) => {
+    const filteredTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(filteredTodos);
   };
 
   return (
     <div>
       <TodoForm onAddTodo={addNewTodo} />
-      <TodoList items={todos} />
+      <TodoList items={todos} onTodoRemove={removeTodo} />
     </div>
   );
 };

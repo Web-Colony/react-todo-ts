@@ -1,11 +1,14 @@
 import React from "react";
+import TodoItem from "./TodoItem";
 import { TodoListProps } from "../interfaces/TodoList";
 
-const TodoList: React.FC<TodoListProps> = ({ items }) => {
+const TodoList: React.FC<TodoListProps> = ({ items, onTodoRemove }) => {
   return (
     <ul>
       {items.map((item) => (
-        <li key={item.id}>{item.text}</li>
+        <div key={item.id}>
+          <TodoItem onTodoRemove={onTodoRemove} details={item} />
+        </div>
       ))}
     </ul>
   );

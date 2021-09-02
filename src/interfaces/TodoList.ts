@@ -1,5 +1,6 @@
-import { ITodoItem } from "./TodoItem";
+import { TodoItem } from "./TodoItem";
 
 export interface TodoListProps {
-  items: ITodoItem[];
+  items: TodoItem[];
+  onTodoRemove: (id: string) => void;
 }

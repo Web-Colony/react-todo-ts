@@ -4,6 +4,11 @@ export interface ITodoItem {
   done: boolean;
 }
 
+export interface TodoItemProps {
+  details: TodoItem;
+  onTodoRemove: (id: string) => void;
+}
+
 export class TodoItem implements ITodoItem {
   id: string;
   text: string;
